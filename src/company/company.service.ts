@@ -2,7 +2,11 @@ import { Injectable, ForbiddenException, ConflictException } from '@nestjs/commo
 import { PrismaService } from '../prisma/prisma.service';
 import { OxApiService } from '../common/services/ox-api.service';
 import { RegisterCompanyDto } from '../common/dto/auth.dto';
-import { Role } from '@prisma/client';
+
+export enum Role {
+  ADMIN = 'ADMIN',
+  MANAGER = 'MANAGER',
+}
 
 @Injectable()
 export class CompanyService {
