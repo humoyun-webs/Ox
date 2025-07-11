@@ -29,12 +29,9 @@ export class ProductsService {
     if (!user || user.companies.length === 0) {
       throw new ForbiddenException('User is not associated with any company');
     }
-
-    // For simplicity, use the first company
-    // In a real app, you might want to let users choose which company to query
+   
     const company = user.companies[0];
 
-    // Get products from OX API
     const products = await this.oxApiService.getVariations(
       company.subdomain,
       company.token,

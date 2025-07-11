@@ -2,7 +2,11 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { PrismaService } from '../prisma/prisma.service';
 import { LoginDto, VerifyOtpDto } from '../common/dto/auth.dto';
-import { Role } from '@prisma/client';
+
+export enum Role {
+  ADMIN = 'ADMIN',
+  MANAGER = 'MANAGER',
+}
 
 @Injectable()
 export class AuthService {
@@ -59,7 +63,6 @@ export class AuthService {
       throw new UnauthorizedException('OTP expired');
     }
 
-    // Clear OTP after successful verification
     await this.prisma.user.update({
       where: { id: user.id },
       data: {

@@ -24,13 +24,11 @@ export class CompanyService {
       throw new ForbiddenException('Invalid token or subdomain');
     }
 
-    // Check if company already exists
     const existingCompany = await this.prisma.company.findUnique({
       where: { subdomain },
     });
 
     if (existingCompany) {
-      // Add user to existing company as manager
       await this.prisma.user.update({
         where: { id: userId },
         data: {
