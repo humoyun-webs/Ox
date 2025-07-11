@@ -63,13 +63,7 @@ Swagger hujjat: http://localhost:3000/api
 ## Muhim eslatmalar
 - OTP javobda chiqadi, real loyihada email/SMS bo‘ladi
 - JWT_SECRET ni xavfsizroq qilib o‘zgartiring
-- OX API uchun haqiqiy token va subdomain kerak
-
-## Foydali buyruqlar
-- Test: `npm run test`
-- E2E test: `npm run test:e2e`
-- Coverage: `npm run test:cov`
-- Prisma Studio: `npx prisma studio`
+- OX API uchun haqiqiy token va subdomainga ozgartiring
 
 ## Loyiha tuzilmasi
 ```
